@@ -3,7 +3,7 @@ import 'package:cashbb/app/modules/home/views/components/wallet_card.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class Wallets extends GetView<HomeController> {
+class Wallets extends StatelessWidget {
   const Wallets({
     Key? key,
   }) : super(key: key);
@@ -13,23 +13,38 @@ class Wallets extends GetView<HomeController> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        WalletCard(
-          tittle: "Go-Pay",
-          hasilDiskon: 21000,
-          persenDiskon: controller.dGopay,
-          maks: 10000,
+        GetBuilder<HomeController>(
+          builder: (c) {
+            return WalletCard(
+              tittle: "Go-Pay",
+              hasilDiskon: c.getGopay,
+              persenDiskon: c.dGopay,
+              maksDiskon: c.maksGopay,
+              cheapest: c.cGopay,
+            );
+          },
         ),
-        WalletCard(
-          tittle: "Shopee",
-          hasilDiskon: 21000,
-          persenDiskon: TextEditingController(),
-          maks: 10000,
+        GetBuilder<HomeController>(
+          builder: (c) {
+            return WalletCard(
+              tittle: "Shopee",
+              hasilDiskon: c.getShopee,
+              persenDiskon: c.dShopee,
+              maksDiskon: c.maksShopee,
+              cheapest: c.cShopee,
+            );
+          },
         ),
-        WalletCard(
-          tittle: "OVO",
-          hasilDiskon: 21000,
-          persenDiskon: TextEditingController(),
-          maks: 10000,
+        GetBuilder<HomeController>(
+          builder: (c) {
+            return WalletCard(
+              tittle: "OVO",
+              hasilDiskon: c.getOvo,
+              persenDiskon: c.dOvo,
+              maksDiskon: c.maksOvo,
+              cheapest: c.cOvo,
+            );
+          },
         ),
       ],
     );

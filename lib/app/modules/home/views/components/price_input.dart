@@ -26,15 +26,7 @@ class PriceInput extends GetView<HomeController> {
             height: 30,
             child: TextField(
               onChanged: (text) {
-                // final ctrl = Get.find<HomeController>();
-                // ctrl.getGopay = double.parse(text);
-                // print(ctrl.getGopay);
-
-                controller.test();
-                if (text == " ") {
-                  print("kosong");
-                }
-                print(controller.getGopay);
+                controller.math();
               },
               controller: controller.priceInput,
               textAlign: TextAlign.center,

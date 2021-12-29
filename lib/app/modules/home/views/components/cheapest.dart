@@ -1,4 +1,8 @@
+import 'package:cashbb/app/modules/home/controllers/home_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
+import '../../constant.dart';
 
 class Cheapest extends StatelessWidget {
   const Cheapest({
@@ -21,12 +25,17 @@ class Cheapest extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text(
-            "12.000",
-            style: TextStyle(
-              fontSize: 34,
-              fontWeight: FontWeight.bold,
-            ),
+          GetBuilder<HomeController>(
+            builder: (c) {
+              return Text(
+                // c.safe.toStringAsFixed(0),
+                nf.format(c.safe),
+                style: TextStyle(
+                  fontSize: 34,
+                  fontWeight: FontWeight.bold,
+                ),
+              );
+            },
           ),
           Text("You safe"),
         ],

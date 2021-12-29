@@ -39,15 +39,11 @@ class HomeView extends GetView<HomeController> {
 
             // Card Harga
             Wallets(),
+
             SizedBox(height: 10),
 
             // Input Harga
             PriceInput(),
-            GetBuilder<HomeController>(
-              builder: (a) {
-                return Text(a.getGopay.toString());
-              },
-            ),
           ],
         ),
       ),

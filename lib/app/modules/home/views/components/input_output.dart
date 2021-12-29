@@ -1,7 +1,11 @@
+import 'package:cashbb/app/modules/home/controllers/home_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:get/get.dart';
 
-class InputOutput extends StatelessWidget {
+import '../../constant.dart';
+
+class InputOutput extends GetView<HomeController> {
   const InputOutput({
     Key? key,
   }) : super(key: key);
@@ -11,8 +15,20 @@ class InputOutput extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        PriceIO(tittle: "HARGA SEBELUM", price: 27000),
-        PriceIO(tittle: "TOTAL BAYAR", price: 20000),
+        GetBuilder<HomeController>(
+          builder: (c) {
+            return PriceIO(
+              tittle: "HARGA SEBELUM",
+              price: double.tryParse(c.priceInput.text) ?? 0,
+              coret: true,
+            );
+          },
+        ),
+        GetBuilder<HomeController>(
+          builder: (c) {
+            return PriceIO(tittle: "TOTAL BAYAR", price: c.totalBayar);
+          },
+        ),
       ],
     );
   }
@@ -22,11 +38,13 @@ class PriceIO extends StatelessWidget {
   const PriceIO({
     Key? key,
     this.price = 0,
+    this.coret = false,
     required this.tittle,
   }) : super(key: key);
 
   final String tittle;
-  final int price;
+  final double price;
+  final bool coret;
 
   @override
   Widget build(BuildContext context) {
@@ -42,11 +60,12 @@ class PriceIO extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
-            price.toString(),
+            nf.format(price),
             style: TextStyle(
               fontSize: 18,
               fontWeight: FontWeight.w600,
               color: Colors.black87,
+              decoration: coret ? TextDecoration.lineThrough : null,
             ),
           ),
           SizedBox(height: 5),
