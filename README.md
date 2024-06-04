@@ -1,16 +1,21 @@
-# cashbb
+---
 
-A new Flutter project.
+# Discount and Cashback Calculator
 
-## Getting Started
+## Project Description
 
-This project is a starting point for a Flutter application.
+This repository is an application for calculating the best value of discounts or cashback. It helps users determine the most cost-effective option when presented with various discount or cashback offers.
 
-A few resources to get you started if this is your first Flutter project:
+## Features
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+- **Discount Calculation**: Calculate the final price after applying different discount percentages.
+- **Cashback Calculation**: Determine the effective price after receiving cashback offers.
+- **Best Value Comparison**: Compare multiple discount and cashback offers to find the best value.
+- **User-friendly Interface**: Simple and intuitive interface for ease of use.
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+## Contact
+
+If you have any questions, feel free to reach out to us at [masdaagusdev@gmail.com](mailto:masdaagusdev@gmail.com).
+
+---
